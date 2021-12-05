@@ -12,8 +12,8 @@ jobs:
         image: postgres:latest
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: github_actions
+          POSTGRES_PASSWORD: ih@teyou
+          POSTGRES_DB: GZbank
         ports:
           - 5432:5432
         # needed because the postgres container does not provide a healthcheck
@@ -29,8 +29,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pytest-django
     - name: Run migrations
       run: python manage.py migrate
     - name: Run tests
-      run: py.test
+      run: python manage.py test
